@@ -1,0 +1,17 @@
+{% extends "projects/base.html" %}
+
+{% block title %}Thank You - My Portfolio{% endblock %}
+
+{% block content %}
+<div class="success-message">
+    <h1 style="color: #155724; margin-bottom: 1rem;">Thank You! ✓</h1>
+    <p style="color: #155724;">
+        Your message has been received. I appreciate you reaching out! 
+        I'll get back to you as soon as possible.
+    </p>
+</div>
+
+<div style="margin-top: 2rem;">
+    <p><a href="{% url 'projects:home' %}">← Back to Home</a></p>
+</div>
+{% endblock %}

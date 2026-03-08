@@ -1,0 +1,110 @@
+{% extends "projects/base.html" %}
+
+{% block title %}About - Sravan Kumar | Python Developer{% endblock %}
+
+{% block content %}
+<h1 class="section-heading">
+    <span class="gradient">About Me</span>
+</h1>
+<p class="section-subtitle">Get to know me better</p>
+
+<div class="intro-box">
+    <div style="text-align: center; margin-bottom: 1.5rem;">
+        <i class="fas fa-user-circle" style="font-size: 5rem; color: #6b72cf;"></i>
+    </div>
+    <h2>Hi, I'm Sravan Kumar</h2>
+    <p class="intro-tagline">
+        <i class="fas fa-code"></i> Python Developer | Full Stack Engineer | AI Enthusiast
+    </p>
+    <p class="intro-paragraph">
+        I'm a passionate developer with a strong foundation in Python, Django, and modern web technologies. I specialize in building intelligent applications using AI and deep learning techniques. With a background in computer science and mathematics, I love tackling complex problems through elegant code solutions.
+    </p>
+    <p class="intro-paragraph">
+        When I'm not coding, you can find me exploring new AI breakthroughs, contributing to open-source projects, or building side projects that challenge my skills.
+    </p>
+</div>
+
+<h2 class="section-heading" style="margin-top: 3rem; margin-bottom: 2rem;">Technical Skills</h2>
+<div class="skills-container">
+    <div class="skill-box">
+        <h4 class="skill-title"><i class="fab fa-python"></i> Languages</h4>
+        <ul>
+            <li>Python (Advanced)</li>
+            <li>C / Java</li>
+            <li>SQL</li>
+            <li>HTML5 / CSS3</li>
+        </ul>
+    </div>
+    <div class="skill-box">
+        <h4 class="skill-title"><i class="fas fa-laptop-code"></i> Web Technologies</h4>
+        <ul>
+            <li>Django Framework</li>
+            <li>Bootstrap & Responsive Design</li>
+            <li>RESTful APIs</li>
+            <li>Database Design</li>
+        </ul>
+    </div>
+    <div class="skill-box">
+        <h4 class="skill-title"><i class="fas fa-robot"></i> AI & Machine Learning</h4>
+        <ul>
+            <li>OpenCV</li>
+            <li>CNN / MCNN Architectures</li>
+            <li>Deep Learning</li>
+            <li>Computer Vision</li>
+        </ul>
+    </div>
+    <div class="skill-box">
+        <h4 class="skill-title"><i class="fas fa-tools"></i> Tools & Platforms</h4>
+        <ul>
+            <li>Git & GitHub</li>
+            <li>Jupyter Notebooks</li>
+            <li>PyQt5</li>
+            <li>VS Code</li>
+        </ul>
+    </div>
+</div>
+
+<h2 style="margin-top: 3rem; margin-bottom: 2rem;">Education</h2>
+<div class="experience-item" style="border-left-color: transparent;">
+    <h4 style="margin-bottom: 0.3rem; font-size: 1.1rem;">MCA - Masters in Computer Applications</h4>
+    <p style="color: #999; margin-bottom: 0.5rem;">Osmania University PG College</p>
+    <p style="color: #666; font-size: 0.9rem; margin-bottom: 0;">2022 – 2024</p>
+</div>
+<div class="experience-item" style="border-left-color: transparent;">
+    <h4 style="margin-bottom: 0.3rem; font-size: 1.1rem;">BSc - Mathematics & Computer Science</h4>
+    <p style="color: #999; margin-bottom: 0.5rem;">Vijetha Degree College</p>
+    <p style="color: #666; font-size: 0.9rem; margin-bottom: 0;">2019 – 2022</p>
+</div>
+
+<h2 style="margin-top: 3rem; margin-bottom: 2rem;">Certifications & Achievements</h2>
+<p style="margin-bottom: 1.5rem;">
+    <span class="badge">Python Programming Certification (Besant)</span>
+    <span class="badge">Python Bootcamp (Udemy)</span>
+    <span class="badge">AI Fundamentals (Simplilearn)</span>
+</p>
+
+{% if technologies %}
+<h2 class="section-heading" style="margin-top: 3rem; margin-bottom: 2rem;">Featured Technologies</h2>
+<p style="color: #666; text-align: center; margin-bottom: 2rem;">
+    {% for tech in technologies %}<span class="badge">{{ tech }}</span>{% if not forloop.last %} {% endif %}{% endfor %}
+</p>
+{% endif %}
+
+<h2 style="margin-top: 3rem; margin-bottom: 2rem;">Languages</h2>
+<p>
+    <span class="badge">🇬🇧 English</span>
+    <span class="badge">🇮🇳 Hindi</span>
+    <span class="badge">🇮🇳 Telugu</span>
+</p>
+
+<div style="text-align: center; margin-top: 3.5rem; padding: 2.5rem; background: linear-gradient(135deg, rgba(107, 114, 207, 0.1) 0%, rgba(138, 146, 232, 0.08) 100%); border-radius: 15px; border: 1px solid rgba(107, 114, 207, 0.1);">
+    <h3 style="color: #1a1a1a; margin-bottom: 1rem;">Interested in working together?</h3>
+    <p style="color: #666; margin-bottom: 1.5rem; max-width: 500px; margin-left: auto; margin-right: auto;">
+        I'm always excited to hear about new projects and opportunities. Let's connect and create something amazing!
+    </p>
+    <a href="{% url 'projects:contact' %}" class="btn-resume" style="background: linear-gradient(135deg, #6b72cf 0%, #8a92e8 100%); color: white; border: 2px solid transparent;">
+        Send Me a Message
+    </a>
+</div>
+{% endblock %}
+

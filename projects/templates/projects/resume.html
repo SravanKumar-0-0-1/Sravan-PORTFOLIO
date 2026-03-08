@@ -1,0 +1,96 @@
+{% extends "projects/base.html" %}
+
+{% block title %}Resume - Sravan Kumar | Python Developer{% endblock %}
+
+{% block content %}
+<h1 style="margin-bottom: 0.5rem;">
+    <span class="gradient">My Resume</span>
+</h1>
+<p style="color: #999; font-size: 1.05rem; margin-bottom: 2rem;">Complete professional profile</p>
+
+{% if resume %}
+    {% if technologies %}
+    <div style="text-align: center; margin-bottom: 2rem;">
+        <h2 class="section-heading">Technologies Featured in Projects</h2>
+        <p style="color: #666;">
+            {% for tech in technologies %}<span class="badge">{{ tech }}</span>{% if not forloop.last %} {% endif %}{% endfor %}
+        </p>
+    </div>
+    {% endif %}
+    <div class="contact-info-box" style="text-align: center; margin-bottom: 2.5rem; padding: 2rem;">        <h2 style="margin-top: 0; margin-bottom: 0.3rem; font-size: 1.8rem;">Sravan Kumar</h2>
+        <p style="color: #6b72cf; font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem;">
+            Python Developer | Full Stack Engineer | AI & Deep Learning Specialist
+        </p>
+        <p style="color: #999; font-size: 0.9rem; margin: 0;">
+            Last Updated: {{ resume.uploaded|date:"M d, Y" }}
+        </p>
+    </div>
+
+    <div style="background: linear-gradient(135deg, rgba(107, 114, 207, 0.1) 0%, rgba(138, 146, 232, 0.08) 100%); border: 2px solid rgba(107, 114, 207, 0.3); border-radius: 15px; padding: 2.5rem; margin: 2.5rem 0; text-align: center;">
+        <p style="color: #666; margin-bottom: 1.5rem; font-size: 0.95rem; line-height: 1.6;">
+            Download my complete resume to view detailed experience, technical skills, projects, and educational background:
+        </p>
+        <a href="{% url 'projects:resume_download' resume.id %}" class="btn-resume" style="font-size: 1.05rem; padding: 1.1rem 2.5rem; background: linear-gradient(135deg, #6b72cf 0%, #8a92e8 100%); color: white; border: 2px solid transparent;">
+            📥 Download Resume (PDF)
+        </a>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.8rem; margin: 3rem 0;">
+        <div style="background: linear-gradient(135deg, rgba(107, 114, 207, 0.08) 0%, rgba(138, 146, 232, 0.06) 100%); border: 1px solid rgba(107, 114, 207, 0.2); border-radius: 15px; padding: 2rem; text-align: center; transition: all 0.4s ease;">
+            <p style="font-size: 2.5rem; margin: 0 0 0.8rem 0;">📄</p>
+            <h4 style="color: #6b72cf; margin: 0 0 0.5rem 0; font-size: 1.1rem;">Complete CV</h4>
+            <p style="color: #666; font-size: 0.9rem; margin: 0;">Full professional history and achievements</p>
+        </div>
+        <div style="background: linear-gradient(135deg, rgba(107, 114, 207, 0.08) 0%, rgba(138, 146, 232, 0.06) 100%); border: 1px solid rgba(107, 114, 207, 0.2); border-radius: 15px; padding: 2rem; text-align: center; transition: all 0.4s ease;">
+            <p style="font-size: 2.5rem; margin: 0 0 0.8rem 0;">💼</p>
+            <h4 style="color: #6b72cf; margin: 0 0 0.5rem 0; font-size: 1.1rem;">Experience</h4>
+            <p style="color: #666; font-size: 0.9rem; margin: 0;">Skills, expertise, and past projects</p>
+        </div>
+        <div style="background: linear-gradient(135deg, rgba(107, 114, 207, 0.08) 0%, rgba(138, 146, 232, 0.06) 100%); border: 1px solid rgba(107, 114, 207, 0.2); border-radius: 15px; padding: 2rem; text-align: center; transition: all 0.4s ease;">
+            <p style="font-size: 2.5rem; margin: 0 0 0.8rem 0;">🎓</p>
+            <h4 style="color: #6b72cf; margin: 0 0 0.5rem 0; font-size: 1.1rem;">Education</h4>
+            <p style="color: #666; font-size: 0.9rem; margin: 0;">Degrees, certifications, and courses</p>
+        </div>
+    </div>
+
+    <div style="background: linear-gradient(135deg, rgba(107, 114, 207, 0.05) 0%, rgba(138, 146, 232, 0.05) 100%); padding: 2rem; border-radius: 15px; border: 1px solid rgba(107, 114, 207, 0.1); margin-top: 2.5rem;">
+        <h3 style="color: #1a1a1a; margin-top: 0;">Quick Overview</h3>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
+            <div>
+                <h4 style="color: #6b72cf; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.8rem;">Primary Skills</h4>
+                <p style="color: #666; margin: 0;">Python, Django, Machine Learning, Computer Vision, Web Development</p>
+            </div>
+            <div>
+                <h4 style="color: #6b72cf; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.8rem;">Education</h4>
+                <p style="color: #666; margin: 0;">MCA (2022-2024), BSc in Computer Science (2019-2022)</p>
+            </div>
+            <div>
+                <h4 style="color: #6b72cf; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.8rem;">Specializations</h4>
+                <p style="color: #666; margin: 0;">AI & Deep Learning, Full Stack Development, OpenCV</p>
+            </div>
+        </div>
+    </div>
+
+{% else %}
+    <div style="text-align: center; padding: 3rem; background: linear-gradient(135deg, rgba(107, 114, 207, 0.05) 0%, rgba(138, 146, 232, 0.05) 100%); border-radius: 15px; border: 1px dashed rgba(107, 114, 207, 0.2);">
+        <p style="color: #999; font-size: 1rem; margin-bottom: 1rem;">📄 Resume not yet uploaded</p>
+        <p style="color: #666; font-size: 0.9rem;">Contact me via email for a detailed resume or check my projects to see my work.</p>
+    </div>
+{% endif %}
+
+<div style="text-align: center; margin-top: 3rem; padding: 2rem; background: linear-gradient(135deg, rgba(107, 114, 207, 0.1) 0%, rgba(138, 146, 232, 0.08) 100%); border-radius: 15px; border: 1px solid rgba(107, 114, 207, 0.1);">
+    <h3 style="color: #1a1a1a; margin-top: 0; margin-bottom: 1rem;">Want to know more?</h3>
+    <p style="color: #666; margin-bottom: 1.5rem;">
+        Check out my projects, skills overview, or reach out directly to discuss opportunities.
+    </p>
+    <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+        <a href="{% url 'projects:list' %}" class="btn-resume" style="background: linear-gradient(135deg, #6b72cf 0%, #8a92e8 100%); color: white; border: 2px solid transparent;">
+            View Projects
+        </a>
+        <a href="{% url 'projects:contact' %}" class="btn-resume">
+            Contact Me
+        </a>
+    </div>
+</div>
+{% endblock %}
+

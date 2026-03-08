@@ -1,0 +1,32 @@
+{% extends "projects/base.html" %}
+
+{% block title %}{{ project.title }} - My Portfolio{% endblock %}
+
+{% block content %}
+<h1>{{ project.title }}</h1>
+
+{% if project.images.all %}
+    <div class="project-gallery">
+        {% for image in project.images.all %}
+            <div class="gallery-item">
+                <img src="{{ image.image.url }}" alt="{{ image.caption|default:project.title }}">
+                {% if image.caption %}
+                    <p class="image-caption">{{ image.caption }}</p>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+{% elif project.image %}
+    <img src="{{ project.image.url }}" alt="{{ project.title }}" style="max-width: 100%; height: auto; margin: 1.5rem 0; border-radius: 8px;">
+{% endif %}
+
+<div style="color: #666; margin-bottom: 1.5rem;">
+    <em>Created: {{ project.created|date:"F j, Y" }}</em>
+</div>
+
+<div style="line-height: 1.8; margin-bottom: 2rem;">
+    {{ project.description }}
+</div>
+
+<p><a href="{% url 'projects:list' %}">← Back to all projects</a></p>
+{% endblock %}

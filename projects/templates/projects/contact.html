@@ -1,0 +1,84 @@
+{% extends "projects/base.html" %}
+
+{% block title %}Contact - Sravan Kumar | Python Developer{% endblock %}
+
+{% block content %}
+<h1 style="margin-bottom: 0.5rem;">
+    <span class="gradient">Get In Touch</span>
+</h1>
+<p style="color: #999; font-size: 1.05rem; margin-bottom: 2rem;">Let's have a conversation</p>
+
+{% if messages %}
+    {% for message in messages %}
+        <div class="success-message" style="margin-bottom: 2rem;">
+            ✓ {{ message }}
+        </div>
+    {% endfor %}
+{% endif %}
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
+    <div class="contact-info-box" style="text-align: center; padding: 2rem;">
+        <p style="font-size: 1.8rem; margin-bottom: 0.8rem;">📧</p>
+        <h4 style="margin-bottom: 0.5rem; color: #6b72cf;">Email</h4>
+        <p style="margin: 0;"><a href="mailto:sravankumaruppari2001@gmail.com" style="color: #6b72cf; font-weight: 600;">sravankumaruppari2001@gmail.com</a></p>
+    </div>
+    <div class="contact-info-box" style="text-align: center; padding: 2rem;">
+        <p style="font-size: 1.8rem; margin-bottom: 0.8rem;">📱</p>
+        <h4 style="margin-bottom: 0.5rem; color: #6b72cf;">Phone</h4>
+        <p style="margin: 0;"><a href="tel:+917036392966" style="color: #6b72cf; font-weight: 600;">+91 7036392966</a></p>
+    </div>
+    <div class="contact-info-box" style="text-align: center; padding: 2rem;">
+        <p style="font-size: 1.8rem; margin-bottom: 0.8rem;">🔗</p>
+        <h4 style="margin-bottom: 0.5rem; color: #6b72cf;">Social</h4>
+        <p style="margin: 0; display: flex; justify-content: center; gap: 1rem;">
+            <a href="https://linkedin.com/in/uppari-sravan-kumar-257b69278" target="_blank" style="color: #6b72cf; font-weight: 600;">LinkedIn</a>
+            <a href="https://github.com/SravanKumar-0-0-1" target="_blank" style="color: #6b72cf; font-weight: 600;">GitHub</a>
+        </p>
+    </div>
+</div>
+
+<div style="max-width: 700px; margin: 0 auto;">
+    <h2 style="text-align: center; margin-bottom: 2rem;">Send Me a Message</h2>
+    
+    <form method="POST" style="background: linear-gradient(135deg, rgba(107, 114, 207, 0.05) 0%, rgba(138, 146, 232, 0.05) 100%); padding: 2.5rem; border-radius: 15px; border: 1px solid rgba(107, 114, 207, 0.1);">
+        {% csrf_token %}
+        
+        <div class="form-group">
+            <label for="id_name" style="font-weight: 600; color: #1a1a1a; margin-bottom: 0.8rem;">Your Name</label>
+            {{ form.name }}
+            {% if form.name.errors %}
+                <p style="color: #e74c3c; font-size: 0.85rem; margin-top: 0.5rem;">{{ form.name.errors }}</p>
+            {% endif %}
+        </div>
+        
+        <div class="form-group">
+            <label for="id_email" style="font-weight: 600; color: #1a1a1a; margin-bottom: 0.8rem;">Your Email</label>
+            {{ form.email }}
+            {% if form.email.errors %}
+                <p style="color: #e74c3c; font-size: 0.85rem; margin-top: 0.5rem;">{{ form.email.errors }}</p>
+            {% endif %}
+        </div>
+        
+        <div class="form-group">
+            <label for="id_message" style="font-weight: 600; color: #1a1a1a; margin-bottom: 0.8rem;">Message</label>
+            {{ form.message }}
+            {% if form.message.errors %}
+                <p style="color: #e74c3c; font-size: 0.85rem; margin-top: 0.5rem;">{{ form.message.errors }}</p>
+            {% endif %}
+        </div>
+        
+        <div style="text-align: center; margin-top: 2rem;">
+            <button type="submit" style="font-size: 1rem; padding: 1rem 2.5rem;">
+                Send Message
+            </button>
+        </div>
+    </form>
+
+    <div style="text-align: center; margin-top: 2rem; padding: 1.5rem; background: linear-gradient(135deg, rgba(107, 114, 207, 0.05) 0%, rgba(138, 146, 232, 0.05) 100%); border: 1px solid rgba(107, 114, 207, 0.1); border-radius: 10px;">
+        <p style="color: #666; font-size: 0.9rem; margin: 0;">
+            <strong>Response Time:</strong> Usually within 24-48 hours
+        </p>
+    </div>
+</div>
+{% endblock %}
+
